@@ -95,7 +95,7 @@ spring.jpa.show-sql=true
    mvn spring-boot:run
    ```
 
-2. La aplicación estará disponible en `http://localhost:8080`.
+2. La aplicación estará disponible en `http://localhost:8002`.
 
 ### Con Docker
 
