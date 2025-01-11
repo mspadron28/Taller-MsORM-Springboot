@@ -1,0 +1,34 @@
+version: "3.8"
+
+services:
+  mysql-cursos-ac:
+    image: mysql:latest
+    container_name: mysql-cursos-ac
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: sisdb2025
+    ports:
+      - "3328:3306"
+    networks:
+      - cursos-net
+    volumes:
+      - mysql-data:/var/lib/mysql
+
+  cursos-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: cursos-app-container
+    ports:
+      - "8002:8002"
+    depends_on:
+      - mysql-cursos-ac
+    networks:
+      - cursos-net
+
+networks:
+  cursos-net:
+
+
+volumes:
+  mysql-data:
